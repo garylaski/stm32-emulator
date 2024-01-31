@@ -88,8 +88,8 @@ impl ExtDevice<(), u8> for Touchscreen {
                 };
 
                 let v = match (op, self.config.flip_x, self.config.flip_y) {
-                    (Operation::MeasureX, Some(true), _) => (MAX - v),
-                    (Operation::MeasureY, _, Some(true)) => (MAX - v),
+                    (Operation::MeasureX, Some(true), _) => MAX - v,
+                    (Operation::MeasureY, _, Some(true)) => MAX - v,
                     _ => v,
                 };
 
